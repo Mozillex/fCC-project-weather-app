@@ -1,11 +1,10 @@
 var msgs = document.querySelector("#msgs");
-var currentDiv = document.querySelector("#current");
+var today = document.querySelector("#today");
 var forecast = document.querySelector("#forecast");
 var controls = document.querySelector("#controls");
 var zipVal,dif,lat,cel,lon,cVal = "a87a4b1d4";
 var togNum, togScale, tempNum, tempScale;
 var currentWeather ={};
-
 
 function displayElement(eID){
    document.getElementById(eID).style.display = "block";
@@ -21,8 +20,10 @@ function unhideElement(eID){
 
 // - - - GEOLOCATION for Weather
 function geoLoc(){
+
+   unhideElement("msgs");
+
 	if (!navigator.geolocation){// if geolocate unavailable, show zip-code input
-		unhideElement("msgs");
 		msgs.innerHTML = "<h4>Your browser does not support geolocation.<br>Enter a 5-Digit US ZipCode Below</h4>";
 		displayElement("zipCtrl");
 	}
@@ -57,11 +58,12 @@ function submitZip() {
 	}
 	else {
 		zipVal = zipInput.value; //ZIP to SEND to weather API
-		removeElement("zipCtrl");
+		//removeElement("zipCtrl");
 		document.querySelector("#msgs").textContent = "brb: Running outside to get your weather...";
 		apiCall("zip",zipVal);
 	}
-		document.getElementById("zipInput").value = "";
+		//document.getElementById("zipInput").value = "";
+      zipInput.value = "";
 }
 dif = "d=524d852309ce12"+cell;
 
@@ -69,23 +71,21 @@ dif = "d=524d852309ce12"+cell;
 // - - - - -
 function apiCall(mod,val){//api call by lat,lon coords
 
-  var modifier = (mod=="zip")?(mod + "=" + val + ",us"):val;
+   var modifier = (mod=="zip")?(mod + "=" + val + ",us"):val;
 	var owURL = "https://api.openweathermap.org/data/2.5/weather?" + modifier + "&appi"+dif;
-
 	var request = new XMLHttpRequest();
+
 	request.open('GET',owURL);
 	request.responseType = 'json';
 	request.send();
-
 	request.onload = function() {
+
 		currentWeather = request.response;
 		console.log(currentWeather);
 		printWeather(currentWeather);
 	}
 
 }
-
-var tempNum, tempScale;
 
 function printWeather(wO){
 
@@ -96,14 +96,14 @@ function printWeather(wO){
 	var tmpC = Math.round(tmpK-273.15);
 	tempNum = tmpF, tempScale = "F";
 
-	currentDiv.innerHTML = "<h4>Currently Weather in "+ wO.name+ ":</h4><h2>" + wO.weather[0].main + "</h2><h1><span id='togNum'>" + tempNum + "</span>\xB0<span id='togScale'>" + tempScale + "</span></h1><p>" + wO.weather[0].description + " with " + wO.main.humidity + "% humidity";
+	today.innerHTML = "<h4>Current Weather in "+ wO.name+ "</h4><h2>" + wO.weather[0].main + "</h2><h1><span id='togNum'>" + tempNum + "</span>\xB0<span id='togScale'>" + tempScale + "</span></h1><p>" + wO.weather[0].description + " and " + wO.main.humidity + "% humidity";
    togScale = document.getElementById("togScale");
    togNum = document.getElementById("togNum");
 
    togScale.addEventListener("click",toggle);
 
    function toggle(){
-		if (tempScale=="F"){//tempLet.nodeValue=="F"
+		if (tempScale=="F"){
 			tempScale="C";
 			tempNum = tmpC;
 		} else {

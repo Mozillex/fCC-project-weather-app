@@ -1,17 +1,31 @@
-body {
+html {
 	font-family: arial, sans-serif;
+	font-size: 15pt;
 	text-align: center;
-	display: block;
+}
+
+body {
+	background-color: lightcoral;
+	color: whitesmoke;
+	justify-content: center;
 }
 
 .wrapper {
-	background-color: lightsteelblue;
+	display: grid;
+  grid-gap: 5px;
+	padding: 20px;
 }
 
-div,
-img {
-	padding: 1rem;
+.header {
+	font-family: monospace, courier;
+	display: block;
 }
+
+.weather {
+	display: block;
+}
+
+
 
 .removed {
 	display: none;
@@ -19,4 +33,12 @@ img {
 
 .hidden {
 	visibility: hidden;
+}
+
+input, button {
+	border-color: transparent;
+	border-radius: 4px;
+	background-color: whitesmoke;
+	opacity: 0.7;
+	color: coral;
 }
