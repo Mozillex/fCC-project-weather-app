@@ -1,0 +1,22 @@
+body {
+	font-family: arial, sans-serif;
+	text-align: center;
+	display: block;
+}
+
+.wrapper {
+	background-color: lightsteelblue;
+}
+
+div,
+img {
+	padding: 1rem;
+}
+
+.removed {
+	display: none;
+}
+
+.hidden {
+	visibility: hidden;
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>yo, it's the weather</title>
+      <link rel="stylesheet" href="index.css">
+   </head>
+   <body>
+      <div class = "wrapper">
+
+      	<div id = "header">
+      <!-- 		<button id="startBtn" onclick="begin()">run</button> -->
+      	</div>
+      	<div class="hidden" id = "msgs"></div>
+      	<div class = "weather">
+      		<div id = "current"></div>
+      		<div id = "forecast"></div>
+      	</div>
+      	<div id = "controls">
+      		<div class = "removed" id = "zipCtrl">
+      			<input id="zipInput" type="text" value="" placeholder="ZIP">
+      			<button id="zipBtn" onclick="submitZip()">get</button>
+      		</div>
+      	</div>
+      	<div id="testDiv"></div>
+      </div>
+      <script src="index.js"></script>
+
+   </body>
+</html>
