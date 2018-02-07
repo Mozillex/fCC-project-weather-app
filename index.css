@@ -10,6 +10,11 @@ body {
 	justify-content: center;
 }
 
+img {
+	height: 100px;
+	width: 100px;
+}
+
 .wrapper {
 	display: grid;
   grid-gap: 5px;

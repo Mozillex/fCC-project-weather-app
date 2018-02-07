@@ -90,7 +90,7 @@ function apiCall(mod,val){//api call by lat,lon coords
 
 var tempNum, tempScale;
 
-function printWeather(wO){
+function printWeather(wO){//     *    *     *      build the doc elements and display them      *  *   *
 
 	removeElement("msgs");
 
@@ -98,8 +98,14 @@ function printWeather(wO){
 	var tmpF = Math.round((tmpK*9/5)-459.67);
 	var tmpC = Math.round(tmpK-273.15);
 	tempNum = tmpF, tempScale = "F";
+   var city = wO.name,
+      mainCond = wO.weather[0].main,
+      descr = wO.weather[0].description,
+      id = wO.weather[0].id, /*weather condition id - use TBD*/
+      iconCode = wO.weather[0].icon,
+      iconURL = "https:\/\/openweathermap.org\/img\/w\/"+iconCode+".png";
 
-	currentDiv.innerHTML = "<h4>Current Weather in "+ wO.name+ "</h4><h2>" + wO.weather[0].main + "</h2><h1><span id='togNum'>" + tempNum + "</span>\xB0<span id='togScale'>" + tempScale + "</span></h1><p>" + wO.weather[0].description + " and " + wO.main.humidity + "% humidity";
+	currentDiv.innerHTML = wO.name+ " Weather</h4><h2><img src='"+ iconURL +"'/></h2><h1><span id='togNum'>" + tempNum + "</span>\xB0<span id='togScale'>" + tempScale + "</span></h1><p>" + wO.weather[0].description + "<br/>humidity: " + wO.main.humidity + "%";
    togScale = document.getElementById("togScale");
    togNum = document.getElementById("togNum");
 
