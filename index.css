@@ -5,7 +5,7 @@ html {
 }
 
 body {
-	background-color: lightcoral;
+	background-color: #411b5a;
 	color: whitesmoke;
 	justify-content: center;
 }
@@ -17,15 +17,72 @@ body {
 }
 
 .header {
-	font-family: monospace, courier;
-	display: block;
+	font-family: courier, monospace;
 }
 
-.weather {
-	display: block;
+#msgs {
+	background-color: #412A65;
+	color: yellow;
+	border-radius: 15px;
+	padding: 3px;
+	line-height: 1.2 rem;
 }
 
+input, button {
+	color: #411b5a;
+	background-color: whitesmoke;
+	background-blend-mode: multiply;
+	border: none;
+/* 	border-color: transparent; */
+	outline: none;
+	border-radius: 8px;
+	opacity: 0.8;
+	height:20px;
+	margin: 0;
+	padding: 1px 4px;
+	text-align: center;
+	font-weight: bold;
+	font-family: courier, code, monospace;
+}
 
+#zipInput {
+	width: 40px;
+}
+
+button:hover {
+	background-color: #fff;
+	color: #411b5a;
+	border: none;
+	border-radius: 8px;
+	-webkit-transition-duration: 0.8s; /* Safari */
+	transition-duration: 0.8s;
+	opacity: 1;
+	cursor: pointer;
+}
+
+button:active {
+	border: none;
+	border-radius: 8px;
+}
+
+button:hover:after {
+	background-color: none;
+	-webkit-transition-duration: 0.6s; /* Safari */
+	transition-duration: 0.6s;
+}
+
+button:visited {
+	border: none;
+	border-radius: 8px;
+	}
+
+#controls {
+	display: block;
+}
+.ctrls {
+	position: relative;
+	display: inline-block;
+}
 
 .removed {
 	display: none;
@@ -35,10 +92,11 @@ body {
 	visibility: hidden;
 }
 
-input, button {
-	border-color: transparent;
-	border-radius: 4px;
-	background-color: whitesmoke;
+#togScale {
 	opacity: 0.7;
-	color: coral;
+}
+
+#togScale:hover {
+	opacity: 1;
+	cursor: pointer;
 }

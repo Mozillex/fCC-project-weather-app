@@ -11,29 +11,47 @@
 
       <div class = "wrapper">
 
-      	<div class = header>
-      		<div id = "header"><h1>forecast</h1></div>
-      		<div class="hidden" id = "msgs"></div>
+
+         <div class = header>
+
+      		<div id = "header"><h1>freeColdCamp</h1></div>
+
+            <div class="hidden" id = "msgs"></div>
+
       	</div>
+
 
       	<div class = "weather">
 
-      		<div id = "today"></div>
+      		<div id = "current"></div>
 
       		<div id = "forecast"></div>
 
       		<div id = "controls">
-      			<div class = "removed" id = "zipCtrl">
+
+
+      			<div class = "removed ctrls" id = "zipCtrl">
       				<input id="zipInput" type="text" size="5" value="" placeholder="zip"/>
-      				<button id="zipBtn" onclick="submitZip()">GO</button>
+      				<button id="zipBtn" onclick="submitZip()" passive="true">GO</button>
       			</div>
+
+      			<div id="locate" class="ctrls">
+      				<button onclick = "geoLoc()">lōc</button>
+      			</div>
+
+
       		</div>
+
 
       	</div>
 
-      	<div class="footer"></div>
+      	<div class="footer">
+
+       	</div>
 
       </div>
+
+
       <script src="index.js" ></script>
    </body>
 </html>
