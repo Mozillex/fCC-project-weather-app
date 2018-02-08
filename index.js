@@ -8,7 +8,7 @@ var currentWeather ={};
 
 
 function displayElement(eID){
-   document.getElementById(eID).style.display = "inline-block";
+  document.getElementById(eID).style.display = "inline-block";
 }
 
 function removeElement(eID){
@@ -23,10 +23,10 @@ function unhideElement(eID){
 function geoLoc(){
 
 	unhideElement("msgs");
-	msgs.innerHTML = "sniffing out your location..."
+	msgs.innerHTML = "sniffing your location..."
 
 	if (!navigator.geolocation){// if geolocate unavailable, show zip-code input
-		msgs.innerHTML = "<h4>Your browser does not support geolocation.<br>Enter a 5-Digit US ZipCode Below</h4>";
+		msgs.innerHTML = "<h4>your browser doesn't support geolocation.<br>enter a 5-digit u.s. zip code</h4>";
 		displayElement("zipCtrl");
 	}
 
@@ -38,7 +38,7 @@ function geoLoc(){
 			apiCall("geo","lat="+lat+"&lon="+lon);
 		}
 		function error(error){
-			msgs.innerHTML = "<h4>Geolocation is Unavailable.<br/>Enter a 5-digit U.S. ZipCode below.</h4>";
+			msgs.innerHTML = "<h4>geolocation unavailable.<br/>enter a 5-digit<br/>u.s. zip code below.</h4>";
 			displayElement("zipCtrl");
 		}
 
@@ -46,7 +46,6 @@ function geoLoc(){
 		navigator.geolocation.getCurrentPosition(success,error);
 	}
 }
-// document.querySelector("#locOK").addEventHandler("checked",geoLoc);
 
 cell = "c3c4c47da"+cVal.split('').reverse().join('');
 
@@ -55,13 +54,13 @@ function submitZip() {
 	var	response = (/^\d{5}?$/.test(toTest));//tests for 5-digit numerical zip
 
 	if (response===false){
-		alert("Aawwww Craaacckk...\n\nEnter a 5-Digit ZIP Code!\n\nThis ain't the Kansas Weather Channel, Dorothy.");
+		alert("Aawwww Craaacckk...\n\nEnter a 5-Digit ZIP Code!\n\nThis ain't the Kansas Weather Service, Dorothy.");
 		console.log(zipInput.value);
 	}
 	else {
 		zipVal = zipInput.value; //ZIP to SEND to weather API
 		removeElement("zipCtrl");
-		document.querySelector("#msgs").textContent = "looking out the window...";
+		document.querySelector("#msgs").textContent = "brb - asking your mom for the weather...";
 		apiCall("zip",zipVal);
 	}
 		document.getElementById("zipInput").value = "";
@@ -88,9 +87,8 @@ function apiCall(mod,val){//api call by lat,lon coords
 
 }
 
-var tempNum, tempScale;
 
-function printWeather(wO){//     *    *     *      build the doc elements and display them      *  *   *
+function printWeather(wO){//   *  *  *   build the doc elements and display them   *  *  *
 
 	removeElement("msgs");
 
@@ -123,4 +121,11 @@ function printWeather(wO){//     *    *     *      build the doc elements and di
       togNum.textContent = tempNum;
 	}
 
+	displayElement("restart");
+
+}
+
+function restart(){
+	removeElement("restart");
+	displayElement("zipCtrl");
 }

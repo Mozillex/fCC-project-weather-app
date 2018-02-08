@@ -1,7 +1,8 @@
 html {
-	font-family: arial, sans-serif;
+	font-family: 'helvetica neue',arial,sans-serif;
 	font-size: 15pt;
 	text-align: center;
+	letter-spacing: 0.1em;
 }
 
 body {
@@ -23,6 +24,7 @@ img {
 
 .header {
 	font-family: courier, monospace;
+
 }
 
 #msgs {
@@ -33,25 +35,28 @@ img {
 	line-height: 1.2 rem;
 }
 
+#controls {
+	display: block;
+}
+.ctrls {
+	position: relative;
+	display: inline-block;
+}
+
 input, button {
 	color: #411b5a;
 	background-color: whitesmoke;
 	background-blend-mode: multiply;
 	border: none;
-/* 	border-color: transparent; */
 	outline: none;
 	border-radius: 8px;
 	opacity: 0.8;
-	height:20px;
 	margin: 0;
-	padding: 1px 4px;
+	padding: 0.2em 0.4em 0.2em 0.4em;
+	font-size: 0.8rem;
 	text-align: center;
 	font-weight: bold;
-	font-family: courier, code, monospace;
-}
-
-#zipInput {
-	width: 40px;
+	font-family: 'courier new',courier, monospace;
 }
 
 button:hover {
@@ -81,14 +86,6 @@ button:visited {
 	border-radius: 8px;
 	}
 
-#controls {
-	display: block;
-}
-.ctrls {
-	position: relative;
-	display: inline-block;
-}
-
 .removed {
 	display: none;
 }
@@ -99,9 +96,12 @@ button:visited {
 
 #togScale {
 	opacity: 0.7;
+	background-color: transparent;
 }
 
 #togScale:hover {
 	opacity: 1;
 	cursor: pointer;
+	background-color: transparent;
+
 }
