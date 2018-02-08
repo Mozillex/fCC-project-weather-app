@@ -8,7 +8,9 @@ html {
 body {
 	background-color: #411b5a;
 	color: whitesmoke;
-	justify-content: center;
+	justify-content: space-around;
+	height: 100vh;
+	display: flex;
 }
 
 img {
@@ -18,13 +20,12 @@ img {
 
 .wrapper {
 	display: grid;
-  grid-gap: 5px;
-	padding: 20px;
+	align-items: center;
 }
 
 .header {
 	font-family: courier, monospace;
-
+	position: relative;
 }
 
 #msgs {
